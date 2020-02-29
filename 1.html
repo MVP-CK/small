@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #post{
+        width: 250px;
+        height: 300px;
+        background-color:black;
+        border: 1px solid red;
+        text-align: center;
+        float: left;
+        color: #ffffff;
+    }
+    img{
+        width:80%;
+        height: 55%;
+        
+    }
+</style>
+<body>
+    <div id="vm"></div>
+
+
+<!-- Switch of 例题 -->
+<script src="./js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+    function fn(){
+        $.ajax({
+            type:"Get",
+            url:"https://api.apiopen.top/getWangYiNews",
+            async:true,
+            success:data=>{
+                console.log("登录成功!",data.result)
+                var str="";
+    for(var i of data.result){
+        str+=`
+        <div id="post">
+        <img src="${i.image}">
+        <p>${i.title}</p>
+        <p>${i.passtime}</p>
+        </div>
+        `  
+    }
+    console.log(str);
+    vm.innerHTML=str;
+            }
+        })
+    }
+    fn();
+ 
+    </script>
+</body>
+</html>

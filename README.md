@@ -1,2 +1,2 @@
-# small
-计算器简单制作
+# Classstudy
+for of使用
